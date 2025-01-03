@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechZone - Innovando Tecnología</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilo del Header */
+    header {
+      background: linear-gradient(to right, green, violet);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    /* Estilo del Footer */
+    footer {
+      background-color: green;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>TechZone</h1>
+    <p>Innovando Tecnología</p>
+  </header>
+
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">TechZone</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#formulario">Categorias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carrusel">Hardware</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer">Accesorios</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulario -->
+  <section id="formulario" class="container mt-5">
+    <h2 class="text-center mb-4">Formulario de Contacto</h2>
+    <form id="contactForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" placeholder="Tu nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Categoría</label>
+        <select class="form-select" id="category" required>
+          <option value="">Seleccionar</option>
+          <option value="consulta">Consulta</option>
+          <option value="soporte">Soporte</option>
+          <option value="otros">Otros</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Carrusel -->
+  <section id="carrusel" class="container mt-5">
+    <h2 class="text-center mb-4">Galería de Imágenes</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/imagen1.jpg" class="d-block w-50" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+          <img src="imagenes/imagen2.jpg" class="d-block w-50" alt="Imagen 2">
+        </div>
+        <div class="carousel-item">
+          <img src="imagenes/imagen3.jpg" class="d-block w-50" alt="Imagen 3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>&copy; 2024 TechZone - Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Validación del Formulario -->
+  <script>
+    $(document).ready(function () {
+      $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+
+        const formData = {
+          name: $('#name').val(),
+          email: $('#email').val(),
+          message: $('#message').val(),
+          category: $('#category').val()
+        };
+
+        if (!formData.name || !formData.email || !formData.message || !formData.category) {
+          alert('Por favor, completa todos los campos.');
+          return;
+        }
+
+        console.log('Datos del formulario:', formData);
+        alert('Formulario enviado correctamente.');
+      });
+    });
+  </script>
+</body>
+</html>
